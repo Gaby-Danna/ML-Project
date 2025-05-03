@@ -1,0 +1,19 @@
+﻿# Data files
+data/
+
+# Logs
+logs/
+
+# Models
+models/
+
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment files
+.env
+venv/
