@@ -1,19 +1,29 @@
 ﻿# Data files
-data/
+/data/
 
 # Logs
-logs/
+/logs/
 
 # Models
-models/
+/models/
 
 # Byte-compiled files
 __pycache__/
 *.py[cod]
 
-# Jupyter Notebook
-.ipynb_checkpoints
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
 
-# Environment files
+# Environment
 .env
 venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# System
+.DS_Store
+Thumbs.db
