@@ -1,11 +1,14 @@
-﻿# Data files
-/data/
+﻿# Data files (tracked via .gitkeep, but actual data ignored)
+/data/*
+!/data/.gitkeep
 
 # Logs
-/logs/
+/logs/*
+!/logs/.gitkeep
 
 # Models
-/models/
+/models/*
+!/models/.gitkeep
 
 # Byte-compiled files
 __pycache__/
@@ -13,7 +16,6 @@ __pycache__/
 
 # Jupyter
 .ipynb_checkpoints/
-*.ipynb
 
 # Environment
 .env
