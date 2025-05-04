@@ -42,7 +42,7 @@ ARIMA : Simple et facilement interprétable
 
 Prophet : 
 - Alternative simple pour comparaison
-- Gère automatiquement : Saisonnalités hebdomadaires/annuelles + Jours fériés + Outliers
+- Gère automatiquement : Saisonnalités hebdomadaires/annuelles + Outliers
 
 XGBoost : 
 - Gère bien les relations non linéaires 
