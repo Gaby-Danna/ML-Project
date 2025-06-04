@@ -1,9 +1,11 @@
-﻿# Core
+# Core
 numpy>=1.21.0
 pandas>=1.3.0
 
 # Machine Learning
 scikit-learn>=1.0.0
+imbalanced-learn>=0.8.0   # Pour SMOTE (imblearn)
+xgboost>=1.5.0
 tensorflow>=2.6.0
 
 # Visualization
@@ -12,3 +14,6 @@ seaborn>=0.11.0
 
 # Notebooks
 jupyter>=1.0.0
+
+# Data API
+alpha_vantage>=2.3.1
