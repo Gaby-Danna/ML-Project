@@ -1,53 +1,53 @@
 # ML-Project
 
-C'est un projet de prédiction des valeurs boursières, le but est de prédire la valeur qu'aura une action par exemple. 
-Pour ce faire, j'ai eu recours à l'utilisation des données boursière présentent sur l'API d'Alpha Vantage. 
+Ce projet vise à prédire l’évolution du prix de l’action Apple (AAPL) à l’aide de techniques de Machine Learning et d’indicateurs techniques boursiers. L’objectif est de fournir des prédictions robustes pour aider à la prise de décision d’investissement, avec une interface chatbot pour interagir avec les résultats.
 
-## Données utilisées :
+## Étapes du projet
 
-- Données historiques quotidiennes des actions telles que Apple
-- Contenant les prix OHLC (Open, High, Low, Close) et le volume
-- Période : Données complètes disponibles depuis l'introduction en bourse
-  
-## Source :
+### 1. Collecte et préparation des données
 
-- API Alpha Vantage (https://www.alphavantage.co/support/#api-key)
-- Clé API gratuite
+- **Source** : API Alpha Vantage (données historiques quotidiennes d’AAPL, OHLCV).
+- **Chargement** : Utilisation de la librairie `alpha_vantage` pour récupérer les données.
+- **Nettoyage** :
+  - Conversion des dates.
+  - Renommage des colonnes pour plus de clarté (`Open`, `High`, `Low`, `Close`, `Volume`).
+  - Création de la variable cible `Target` (1 si le prix du lendemain est supérieur à celui du jour, 0 sinon).
+  - Gestion des valeurs manquantes.
 
-### Méthodes Employées
+### 2. Feature Engineering
 
-Approche globale :
-Préparation des données :
-- Nettoyage des valeurs manquantes
-- Feature engineering (moyennes mobiles, RSI, etc.)
-- Normalisation MinMax
+Ajout d’indicateurs techniques :
+- Moyennes mobiles (SMA5, SMA20)
+- RSI (Relative Strength Index)
+- MACD et signal MACD
+- Bandes de Bollinger (moyenne, supérieure, inférieure)
+- Volatilité (écart-type mobile)
+- Momentum
+- Variation du jour précédent
+- Volume relatif
 
-  Modélisation :
-- Modèles classiques : ARIMA, Prophet, XGBoost
-- Validation temporelle
+### 3. Modélisation
 
-### Objectifs
+- **Modèles testés** :
+  - Random Forest Classifier (avec tuning du nombre d’arbres, gestion du déséquilibre avec SMOTE)
+  - XGBoost Classifier (tuning des hyperparamètres)
+- **Validation** :
+  - Découpage temporel (TimeSeriesSplit)
+  - Backtesting avec fenêtre glissante (sliding window)
+  - Optimisation du seuil de classification (F1-score)
+- **Évaluation** :
+  - Accuracy, Precision, Recall, F1-score
+  - Matrices de confusion et visualisations
+  - Importance des features
 
-Prédire les valeurs futures des actions (Close) pour :
-- Aide à la décision d'investissement
-- Optimisation des portefeuilles
-- Détection d'opportunités de trading
+### 4. Chatbot d’interprétation
 
-### Choix modèles de ML 
-
-ARIMA : Simple et facilement interprétable 
-- Choix initial pour établir une baseline
-- Efficace sur séries stationnaires
-- Paramètres (p,d,q) optimisés via auto_arima
-
-Prophet : 
-- Alternative simple pour comparaison
-- Gère automatiquement : Saisonnalités hebdomadaires/annuelles + Outliers
-
-XGBoost : 
-- Gère bien les relations non linéaires 
-- Optimisation facile
-- Résiste bien aux outliers 
+- Interface interactive en Python pour :
+  - Afficher les alertes de trading (hausses/baisses prévues avec confiance)
+  - Résumer la tendance récente
+  - Donner la prédiction pour la prochaine séance
+  - Évaluer la performance du modèle (précision, retour sur investissement, comparaison buy & hold)
+- Commandes disponibles : `alerte`, `résumé`, `demain`, `performance`, `sortir`
 
 
 https://drive.google.com/drive/folders/1NsXzWhO6XNFc70yPITsUFLTF4pLuFH6_?dmr=1&ec=wgc-drive-globalnav-goto
